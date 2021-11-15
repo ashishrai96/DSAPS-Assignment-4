@@ -1,5 +1,4 @@
 #include <iostream>
-#include <queue>
 
 typedef long long ll;
 
@@ -43,30 +42,6 @@ void build_trie(std::string binary, Node *root) {
             p = p->right;
         }
     }
-}
-
-const int COUNT = 4;
-void print(Node *root, int space)
-{
-    // Base case
-    if (root == NULL)
-        return;
- 
-    // Increase distance between levels
-    space += COUNT;
- 
-    // Process right child first
-    print(root->right, space);
- 
-    // Print current node after space
-    // count
-    std::cout<<std::endl;
-    for (int i = COUNT; i < space; i++)
-        std::cout<<" ";
-    std::cout<<root->bit<<"\n";
- 
-    // Process left child
-    print(root->left, space);
 }
 
 ll find_max_xor(Node *root, std::string binary) {
@@ -118,8 +93,6 @@ int main() {
         std::string binary = get_binary_number(tmp);
         build_trie(binary, node);
     }
-
-    // print(node, 4);
 
     while(q--){
         ll tmp;
