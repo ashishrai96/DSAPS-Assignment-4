@@ -9,7 +9,7 @@ const int SEGMENT_SIZE = 100000;
 class Node {
 public:
     ll val {};
-    std::string fname {};
+    // std::string fname {};
     size_t fidx {};
 
     bool operator<(Node r){
@@ -116,7 +116,7 @@ int main(int argv, char *args[]){
         std::getline(vec_ifs[i], buff, ',');
         Node node{};
         node.val = stoll(buff);
-        node.fname = temp_files[i];
+        // node.fname = temp_files[i];
         node.fidx = i;
         heap[i] = node;
     }
@@ -130,7 +130,7 @@ int main(int argv, char *args[]){
         if(std::getline(vec_ifs[j], buff, ',')){
             Node node{};
             node.val = stoll(buff);
-            node.fname = temp_files[j];
+            // node.fname = temp_files[j];
             node.fidx = j;
             heap.push_back(node);
         }

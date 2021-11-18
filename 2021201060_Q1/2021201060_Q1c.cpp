@@ -23,6 +23,7 @@ void get_suffix_array(std::string str, int *suffix_array, int *lcp, size_t len){
             match++;
         }
         lcp[i] = match;
+        // std::cout << it->first << " " << lcp[i] << " " << it->second << std::endl;
         i++;
         it++;
         prev = curr;
@@ -38,16 +39,16 @@ int main(){
     }
     str_new = str+'~'+rstr;
 
-    size_t n = str.length();
+    size_t n = str_new.length();
     int *sa = new int[n];
     int *lcp = new int[n];
 
     get_suffix_array(str_new, sa, lcp, n);
     
-    size_t len{1}, idx{};
-    for(size_t i{0}; i<str_new.length(); i++) {
-        if((sa[i] < str.length() && sa[i+1] > str.length()) || 
-            (sa[i] > str.length() && sa[i+1] < str.length())) {
+    size_t len{0}, idx{0};
+    for(size_t i{1}; i<str_new.length(); i++) {
+        if((sa[i-1] < str.length() && sa[i] > str.length()) || 
+            (sa[i-1] > str.length() && sa[i] < str.length())) {
                 if(lcp[i] > len) {
                     len = lcp[i];
                     idx = sa[i];
