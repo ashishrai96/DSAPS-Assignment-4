@@ -1,16 +1,13 @@
 #include <iostream>
 #include <map>
 
-
 void get_suffix_array(std::string str, int *suffix_array, int *lcp, size_t len){
 
     std::map<std::string, size_t> map{};
-    
 
     for(size_t i{0}; i<len; i++){
         map.insert(std::make_pair(str.substr(i), i));
     }
-
 
     auto it = map.begin();
     int i {0};
@@ -23,7 +20,6 @@ void get_suffix_array(std::string str, int *suffix_array, int *lcp, size_t len){
             match++;
         }
         lcp[i] = match;
-        // std::cout << it->first << " " << lcp[i] << " " << it->second << std::endl;
         i++;
         it++;
         prev = curr;
@@ -58,47 +54,5 @@ int main(){
 
     std::cout << str_new.substr(idx, len) << std::endl;
 
-
-    // size_t len {(str+str).length()};
-
-    // for(size_t i{0}; i<len; i++) {
-    //     if(arr[i] < str.length()) {
-    //         std::cout << (str+str).substr(arr[i], str.length());
-    //         break;
-    //     }
-    // }
-    
-   
-
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- * @brief 
- * 
- * str = dcabca
- * dcabca ~ acbacd <- str2
- * sa...
- * lcp....[ int ]
- * len = 1
- * idx;
- * ...sa -> sa.i < str.len and sa.i+1 > str.len or opposite
- *  lcp.i > len -> len=lcp.i, idx=sa.i
- * 
- * 
- * str2[idx:len]
- * 
- * 
- * 
- */

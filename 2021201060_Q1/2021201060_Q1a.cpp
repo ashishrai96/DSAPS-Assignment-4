@@ -1,7 +1,6 @@
 #include <iostream>
 #include <map>
 
-
 int *get_suffix_array(std::string str){
 
     std::map<std::string, size_t> map{};
@@ -37,37 +36,6 @@ int main(){
             break;
         }
     }
-    
-   
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- * @brief 
- * 
- * str = dcabca
- * dcabca ~ acbacd <- str2
- * sa...
- * lcp....[ int ]
- * len = 1
- * idx;
- * ...sa -> sa.i < str.len and sa.i+1 > str.len or opposite
- *  lcp.i > len -> len=lcp.i, idx=sa.i
- * 
- * 
- * str2[idx:len]
- * 
- * 
- */

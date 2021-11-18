@@ -1,7 +1,6 @@
 #include <iostream>
 #include <map>
 
-
 long *get_suffix_array(std::string str){
 
     std::map<std::string, size_t> map{};
