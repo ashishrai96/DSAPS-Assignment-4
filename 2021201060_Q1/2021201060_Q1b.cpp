@@ -42,6 +42,9 @@ int main(){
                 start++;
                 end++;
             }
+            else{
+                break;
+            }
         }
         
         max = (t>max)? t : max;
