@@ -4,7 +4,7 @@
 
 typedef long long ll;
 
-const int SEGMENT_SIZE = 1000;
+const int SEGMENT_SIZE = 100000;
 
 class Node {
 public:
